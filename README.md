@@ -7,9 +7,9 @@ HefestoOS é um sistema operacional com arquitetura x86_64 em desenvolvimento, c
 Estou usando Netwide Assembler (NASM), LLVM Linker, e QEMU (x86_64) pra rodar e compilar o código! :) 
 
 ## Objetivos:
-- [ ] Bootloader + Stage 2 com entrada ao modo de 64 Bits (o básico né);
-- [ ] Kernel com um linker pra C;
-- [ ] Drivers essenciais (teclado e VGA);
+- [x] Bootloader + Stage 2 com entrada ao modo de 64 Bits (o básico né);
+- [x] Kernel com um linker pra C;
+- [ ] Drivers essenciais (teclado e tela);
 - [ ] Shell básico e funcional;
 - [ ] Gerenciamento de memória;
 - [ ] Sistema de Arquivos (talvez varie dependendo da versão, mas o objetivo é FAT32);
