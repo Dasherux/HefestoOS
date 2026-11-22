@@ -2,7 +2,9 @@
 
 # HefestoOS
 
-HefestoOS é um sistema operacional em desenvolvimento, criado por Dasherux em 2026 e feito em Assembly e puro freestanding C, futuramente com próprias bibliotecas.
+HefestoOS é um sistema operacional com arquitetura x86_64 em desenvolvimento, criado por Dasherux em 2026 e feito em Assembly e puro freestanding C, futuramente com próprias bibliotecas.
+
+Estou usando Netwide Assembler (NASM), LLVM Linker, e QEMU (x86_64) pra rodar e compilar o código! :) 
 
 ## Objetivos:
 - [ ] Bootloader + Stage 2 com entrada ao modo de 64 Bits (o básico né);
