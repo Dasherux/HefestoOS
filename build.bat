@@ -27,13 +27,73 @@ clang --target=x86_64-unknown-none-elf ^
 
 if errorlevel 1 goto error
 
+echo [BUILD] Compiling modules...
+
+clang --target=x86_64-unknown-none-elf ^
+    -c system\console.c ^
+    -o console.o ^
+    -ffreestanding ^
+    -fno-stack-protector ^
+    -fno-pic -fno-pie ^
+    -mno-red-zone ^
+    -mno-sse -mno-sse2 ^
+    -mcmodel=small ^
+    -O0
+	
+if errorlevel 1 goto error
+echo [MODULES] Console compiled!
+
+clang --target=x86_64-unknown-none-elf ^
+    -c system\shell.c ^
+    -o shell.o ^
+    -ffreestanding ^
+    -fno-stack-protector ^
+    -fno-pic -fno-pie ^
+    -mno-red-zone ^
+    -mno-sse -mno-sse2 ^
+    -mcmodel=small ^
+    -O0
+	
+if errorlevel 1 goto error
+echo [MODULES] Shell compiled!
+
+clang --target=x86_64-unknown-none-elf ^
+    -c drivers\keyboard.c ^
+    -o keyboard.o ^
+    -ffreestanding ^
+    -fno-stack-protector ^
+    -fno-pic -fno-pie ^
+    -mno-red-zone ^
+    -mno-sse -mno-sse2 ^
+    -mcmodel=small ^
+    -O0
+
+if errorlevel 1 goto error
+echo [MODULES] Keyboard compiled!
+
+echo [BUILD] Compiling libraries...
+
+clang --target=x86_64-unknown-none-elf ^
+    -c lib\string.c ^
+    -o string.o ^
+    -ffreestanding ^
+    -fno-stack-protector ^
+    -fno-pic -fno-pie ^
+    -mno-red-zone ^
+    -mno-sse -mno-sse2 ^
+    -mcmodel=small ^
+    -O0
+
+if errorlevel 1 goto error
+echo [LIBS] "String" compiled!
+
 echo [BUILD] Linking ELF64...
 
 ld.lld -m elf_x86_64 ^
 -T kernel/linker.ld ^
 -nostdlib ^
 -o kernel.elf ^
-entry.o kernel.o
+entry.o kernel.o console.o shell.o keyboard.o string.o
 
 if errorlevel 1 goto error
 
@@ -62,4 +122,6 @@ exit /b 1
 
 :end
 echo [BUILD] OS image ready: os.img
+os.img
+pause
 endlocal
