@@ -15,8 +15,9 @@ Estou usando Netwide Assembler (NASM), LLVM Linker, e QEMU (x86_64) pra rodar e 
 - [ ] Interrupções e assincronia;
 - [ ] Kernel multitarefa;
 - [ ] Sistema de Arquivos (talvez varie dependendo da versão, mas o objetivo é FAT32);
+- [ ] Self-hosting;
 - [ ] UI gráfica + Mouse;
-- [ ] Biblioteca do sistema;
+- [ ] Conexão à internet;
 
 Pulls são bem-vindas! Vibecode é permitido se tiver uma boa e clara explicação do código e não ferrar com tudo futuramente. Agradeço se colocar comentários, preferência em idiomas com alfabeto latino (inglês, português, espanhol, alemão e por aí vai).
 
